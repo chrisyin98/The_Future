@@ -9,19 +9,16 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- import the webpage's javascript file -->
-    <!--<script src="script.js" ></script>-->
+    <script src="script.js" defer></script>
 
     <!-- import the p5.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.js"></script>
     <script src="https://unpkg.com/p5.collide2d"></script>
 
-    <script type="text/javascript" src="script.js" defer></script>
-
   </head>
   <body>
 
-    <!-- add this to body  -->
 
     <div id="container">
       <video autoplay="true" id="videoElement">
@@ -29,17 +26,52 @@
       <p id="words"> it's dance math time little children </p>
       <div>Teachable Machine Pose Model</div>
       <button type="button" id='start' onclick="init()">Start</button>
+
     </div>
 
+    <div><canvas id="canvas"></canvas></div>
+    <div id="label-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
 
-  <div><canvas id="canvas"></canvas></div>
-  <div id="label-container"></div>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
 
 
 
-</body>
+    <div id="home">
+      <img src="https://cdn.glitch.com/2d6f592c-086f-42ba-a4b0-4fb322cbb8be%2FCapture.PNG?v=1602998511838" class="center"/>
+      <br>
+      <div class="inlineImage">
+        <img src="https://cdn.glitch.com/2d6f592c-086f-42ba-a4b0-4fb322cbb8be%2FGroup%201306.png?v=1602998691456" id="add"/>
+        <img src="https://cdn.glitch.com/2d6f592c-086f-42ba-a4b0-4fb322cbb8be%2FGroup%201303.png?v=1602998688545" id="subtract"/>
+        <img src="https://cdn.glitch.com/2d6f592c-086f-42ba-a4b0-4fb322cbb8be%2FGroup%201305.png?v=1602998694891" id="multiply"/>
+        <img src="https://cdn.glitch.com/2d6f592c-086f-42ba-a4b0-4fb322cbb8be%2FGroup%201304.png?v=1602998683300" id="divide"/>
+      </div>
+    </div>
+    <main>
+<!--         <div class="displayNone displayNone2 displayNone3"> -->
+        <div>
+            <section class="cards">
+                <div class="cardPool">
+                    <div class="card pauseClass" id="pause">
+                        <!-- Card 1 -->
+                        <p id="pauseText">Pause</p>
+                    </div>
+                    <div class="card" id="timer">
+                        <p id="timerContent"></p>
+                    </div>
+                    <div class="card" id="question">
+                        <!-- Card 3 -->
+                        <p id="questionContent">Question</p>
+                    </div>
+                    <div class="card" id="score">
+                        <!-- Card 4 -->
+                        <p id="scoreKeep">Score: 0</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+  </body>
 
 </html>
