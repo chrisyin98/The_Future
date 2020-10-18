@@ -1,3 +1,4 @@
+//this is for webcam feed
 
 const video = document.querySelector("#videoElement");
 const constraints = { video: true,
@@ -13,10 +14,11 @@ if (navigator.mediaDevices.getUserMedia) {
     });
 }
 
-/*
+//####################################################################
+
+//This is for machine learning
 
 const URL = "https://teachablemachine.withgoogle.com/models/OO6Z-wMs4/";
-
 
 let model, webcam, ctx, labelContainer, maxPredictions;
 
@@ -26,20 +28,29 @@ async function init() {
 
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
     // Note: the pose library adds a tmPose object to your window (window.tmPose)
+    let goWord1 = document.createElement('p');
+    goWord1.textContent = "have patience children";
+    document.getElementById('words').append(goWord1);
+
     model = await tmPose.load(modelURL, metadataURL);
+    document.getElementById('words').textContent = "";
+    let goWord = document.createElement('p');
+    goWord.textContent = "you are now ready for dance math Time";
+    document.getElementById('words').append(goWord);
+
     maxPredictions = model.getTotalClasses();
 
     // Convenience function to setup a webcam
 
-    const windowInnerWidth  = window.innerWidth;
-    const windowInnerHeight = window.innerHeight;
+    const windowInnerWidth  = window.outerWidth;
+    const windowInnerHeight = window.outerHeight;
 
     console.log(windowInnerHeight);
     console.log(windowInnerHeight);
 
     const flip = true; // whether to flip the webcam
     //webcam = new tmPose.Webcam(windowInnerWidth, windowInnerHeight, flip); // width, height, flip
-    //await webcam.setup(); // request access to the webcam
+   // await webcam.setup(); // request access to the webcam
     //await webcam.play();
     window.requestAnimationFrame(loop);
 
@@ -54,7 +65,7 @@ async function init() {
 }
 
 async function loop(timestamp) {
-    webcam.update(); // update the webcam frame
+    //webcam.update(); // update the webcam frame
     await predict();
     window.requestAnimationFrame(loop);
 }
@@ -62,7 +73,7 @@ async function loop(timestamp) {
 async function predict() {
     // Prediction #1: run input through posenet
     // estimatePose can take in an image, video or canvas html element
-    const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+    const { pose, posenetOutput } = await model.estimatePose(document.getElementById('videoElement'));
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
 
@@ -77,8 +88,8 @@ async function predict() {
 }
 
 function drawPose(pose) {
-    if (webcam.canvas) {
-        ctx.drawImage(webcam.canvas, 0, 0);
+    if (document.getElementById('videoElement')) {
+        ctx.drawImage(document.getElementById('videoElement'), window.innerWidth, window.innerHeight);
         // draw the keypoints and skeleton
         if (pose) {
             const minPartConfidence = 0.5;
@@ -87,5 +98,3 @@ function drawPose(pose) {
         }
     }
 }
-
-*/
