@@ -16,6 +16,25 @@ if (navigator.mediaDevices.getUserMedia) {
 
 //####################################################################
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //This is for machine learning
 
 const URL = "https://teachablemachine.withgoogle.com/models/OO6Z-wMs4/";
@@ -80,6 +99,8 @@ async function predict() {
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+
+        console.log(classPrediction);
         labelContainer.childNodes[i].innerHTML = classPrediction;
     }
 

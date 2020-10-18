@@ -1,14 +1,107 @@
-/* CSS files add styling rules to your content */
-
 body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  flex-direction: column;
+  display: flex;
+  height: inherit;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+html {
+  height: 100%;
+  // background-color: blue;
 }
+
+main {
+  flex: 1;
+}
+
+main > div {
+  display: flex;
+  padding: 1em;
+  flex: 1;
+  height: 100%
+}
+
+.header {
+  flex-basis: 240px;
+  padding: 1em;
+}
+
+.cards {
+  flex: 1;
+  background-color: rgb(252,252,252);
+  padding: 1em;
+}
+
+.cardPool {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  flex: 0 0 250px;
+  background-color: white;
+  margin: .5rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.16),0 1px 3px rgba(0,0,0,0.23);
+  text-align: center;
+}
+
+.card p {
+  padding: .5rem 1rem;
+}
+
+/* Sets the containers height and width */
+.base-timer {
+  position: relative;
+  height: 300px;
+  width: 300px;
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+/* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.pauseClass {
+  background-color: white;
+}
+
+.resumeClass {
+  background-color: lightgreen;
+}
+
+.inlineImage {
+  display: flex;
+  justify-content: center;
+}
+
+.displayNone.displayNone2.displayNone3 {
+  display: none;
+}
+
+
+
+
+
+
 
 #words {
   font-size: 100px;
