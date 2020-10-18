@@ -1,4 +1,4 @@
-var video = document.querySelector("#videoElement");
+const video = document.querySelector("#videoElement");
 const constraints = { video: true,
                       video: {width: { ideal: 4096 },
                       height: { ideal: 2160 } }};
